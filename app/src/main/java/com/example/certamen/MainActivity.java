@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    //https://github.com/NikoMaximi12/Certamen.git
     EditText Peso,Estatura;
     TextView imc,interfaz;
     Button btnimc;
@@ -34,8 +35,33 @@ public class MainActivity extends AppCompatActivity {
 
         Double estatura1 = Double.parseDouble(estatura)/100;
         Double IMC = Double.parseDouble(peso)/(estatura1*estatura1);
-        imc.setText(IMC.toString());
-
+        imc.setText(IMC.toString().substring(0,5));
+        if (IMC<18.5){
+            interfaz.setText(
+                    "1) Come con mas frecuencia. Empieza poco a poco a hacer 5 a 6 comidas mas pequeñas durante el dia" +
+                    "2) Elige alimentos con muchoas nutrientes" +
+                    "3) Agrega aderezos" +
+                    "4) Prueba Licuados y batidos de frutas" +
+                    "5) Controla que bebes y cuando" +
+                    "6) Haz ejercicio");
+        }else if(IMC>18.5 && IMC<24.9){
+            interfaz.setText("");
+            Toast.makeText(this, "Felicitaciones ud mantiene una excelente alimentacion", Toast.LENGTH_SHORT).show();
+        } else if (IMC>25 && IMC<29.9) {
+            interfaz.setText("Como reducir el imc: "
+                    +
+                    "1) Haga 30 minutos de ejercicio aerobico 5 veces por semana" +
+                    "2) Logre un equilibrio entre el consumo de calorias y la actividad fisica" +
+                    "3) Limite las grasas saturadas a no mas del 7% de las calorias totales" +
+                    "4) Tenga una alimentacion baja en colesterol con carnes magras, frutas, verduras y cereales integrales");
+        }else if(IMC>30 && IMC<34.9){
+            interfaz.setText("Como reducir el imc: "
+                    +
+                    "1) Haga 30 minutos de ejercicio aerobico 5 veces por semana" +
+                    "2) Logre un equilibrio entre el consumo de calorias y la actividad fisica" +
+                    "3) Limite las grasas saturadas a no mas del 7% de las calorias totales" +
+                    "4) Tenga una alimentacion baja en colesterol con carnes magras, frutas, verduras y cereales integrales");
+        }
 
 
     }
